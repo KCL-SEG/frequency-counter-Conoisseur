@@ -14,12 +14,17 @@ def frequencies(items):
 
     frequencies = {}
     # Your code goes here
+    strings = []
     for item in items:
         if type(item) != "str":
-            item += ""
+            strings.append(str(item))
+        else:
+            strings.append(item)
 
-    for item in items:
-        frequencies[item] = items.count(item)
-        items.remove(item)
+    for string in strings:
+        if frequencies.get(string) is None:
+            frequencies[string] = strings.count(string)
 
     return frequencies
+
+
